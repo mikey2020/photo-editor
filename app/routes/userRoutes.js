@@ -8,7 +8,13 @@ module.exports = (app) => {
 	app.get('/signup',user.renderSignUp);
 	app.post('/signup',user.signUp);
 	app.get('/edit',user.renderEdit);
-	app.post('/upload',uploads.single("file"),user.upload);
+	app.post('/upload',uploads.any(),function(req,res){
+		if(req.files){
+			res.render('edit',{
+				image: 'uploads/' + req.files.filename
+			})
+		}
+	});
 	app.get('/signin',user.renderSignIn);
 	
 	app.post('/signin', 

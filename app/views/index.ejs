@@ -8,6 +8,11 @@
 <% if(name) { %>
 	<p>Hello <%=name%></p>
 <% } %>
-<p></p>
+<div>
+	<form method="post" enctype="multipart/form-data" action="/upload">
+		    <input type="file" name="file">
+		    <input type="submit" value="upload file">
+	</form>
+</div>
 </body> 
 </html>

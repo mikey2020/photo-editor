@@ -42,6 +42,7 @@ module.exports = () => {
 
 	app.use(passport.session());
 
+	app.use(bodyParser({ keepExtensions: true, uploadDir: __dirname + '/uploads' }));
 
     app.use(flash());
 

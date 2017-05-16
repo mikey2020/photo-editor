@@ -4,6 +4,9 @@ $(document).ready(function(){
  $(".range").change(add_filter).mousemove(add_filter);
  $("#edit_control").click(function() { $
  	(".range").show()});
+
+ $("#save").click(function() { $
+ 	(".range").hide()});
 });
 	
 function add_filter()
