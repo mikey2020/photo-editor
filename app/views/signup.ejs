@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body> 
+    <% include temps/header.ejs %>
+    <p><a href="#">login here </a></p>
+
+    <div class = "jumbotron">
+        <form method="post" action="/signup" class="form-horizontal">
+           <div class="form-group">
+        	<input type = "text" placeholder="firstname" name = "firstname" >
+        	<br>
+        	<input type = "text" placeholder="lastname" name = "lastname">
+        	<br>
+        	<input type="text" placeholder = "username" name="username">
+        	<br>
+        	<input type="email" placeholder = "email" name="email">
+        	<br>
+        	<input type="password" placeholder = "password" name="password">
+            <br>
+        	<input type="submit" name="sign up" class="btn btn-primary active">
+           </div>  
+        </form>
+    <div>
+  </body>
+</html>

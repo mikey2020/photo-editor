@@ -1,15 +1,17 @@
-const express = require('express');
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-const app = new express();
+//require('./config/express')(app);
+const express = require('./config/express');
+const mongoose = require('./config/mongoose');
 
-const port = 3000;
+const app = express();
+const db = mongoose();
 
-app.use('/',function(req,res){
-	res.send("hello am using express");
-});
-
+let port = 3000;
 
 app.listen(port);
-console.log("Server listening at port " + port);
+
 
 module.exports = app;
+
+console.log("Server listening at port " + port);
