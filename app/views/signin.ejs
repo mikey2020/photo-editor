@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+  </head>
+  <body> 
+    <% include temps/header.ejs %>
+    <p><a href="#">sign up here</a></p>
+    <div>
+      <% for(let message in messages){ %>
+          <p><%= messages[message] %></p>
+      <% } %>
+    </div>
+    <div class = "jumbotron">
+        <form method="post" action="/signin" class="form-horizontal">
+           <div class="form-group">
+            	<input type="text" placeholder = "username" name="username">
+            	<br>
+            	<input type="password" placeholder = "password" name="password">
+                <br>
+            	<input type="submit" name="Sign In" class="btn btn-primary active">
+           </div>  
+        </form>
+    <div>
+  </body>
+</html>

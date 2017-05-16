@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var crypto = require('crypto');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const crypto = require('crypto');
 mongoose.Promise = global.Promise;
 
 
 
-var UserSchema = new Schema({
+const UserSchema = new Schema({
 	firstname: String,
 	lastname: String,
 	username: {
@@ -32,7 +32,7 @@ var UserSchema = new Schema({
 });
 
 UserSchema.methods.hashPassword = function(password){
-	var hashedPassword  = crypto.pbkdf2Sync(password, this.salt, 100000, 64, 'sha512');
+	let hashedPassword  = crypto.pbkdf2Sync(password, this.salt, 100000, 64, 'sha512');
 	hashedPassword = hashedPassword.toString('hex');
 	console.log(hashedPassword.toString('hex')); 
 	return hashedPassword;

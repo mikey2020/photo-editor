@@ -4,6 +4,9 @@ const compress = require('compression');
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const path = require('path');
+const flash = require('connect-flash');
+const session = require('express-session');
+const passport = require('passport');
 
 
 module.exports = () => {
@@ -25,10 +28,27 @@ module.exports = () => {
 	
 	app.use(methodOverride());
 
+	app.use(express.static('./public'));
+    
+    app.use(session({
+	  secret: "Winter is Coming",
+
+	  resave: false,
+
+	  saveUninitialized: true
+	}));
+
+	app.use(passport.initialize());
+
+	app.use(passport.session());
+
+
+    app.use(flash());
+
 	app.set('views', './app/views');  
     app.set('view engine', 'ejs');
 
-    app.use(express.static('./public'));
+
  
 
 	require('../app/routes/indexRoutes')(app);
