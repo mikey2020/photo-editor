@@ -4,7 +4,7 @@ const multer = require('multer');
 const uploads = multer({ dest: 'uploads/'});
 const passport = require('passport');
 const fs = require('fs');
-const Image = require('mongoose').model("Image");
+const Image = require('mongoose').model("Photo");
 const crypto = require('crypto');
 const path = require('path');
 const cloudinary = require('cloudinary');
@@ -44,7 +44,7 @@ module.exports = (app) => {
 			fs.renameSync("uploads/"+req.file.filename ,"uploads/"+req.file.originalname);
 			cloudinary.uploader.upload("uploads/"+req.file.originalname, function(result){ 
 			  console.log(result);
-			  let image = new Image(req.session.username,JSON.stringify(result.url));
+			  let image = new Photo("name","my image");
 			  image.save(function(err){
 			  	if(err){
 			  		console.log(err);

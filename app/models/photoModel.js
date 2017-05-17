@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema ;
 
-const ImageSchema = new Schema({
+const PhotoSchema = new Schema({
 
 	username: String,
-	image: String
+	photo: String
 });
 
 
-module.exports = mongoose.model("Image",ImageSchema);
+module.exports = mongoose.model("Photo",PhotoSchema);
 
 
