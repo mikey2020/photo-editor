@@ -33,7 +33,7 @@ module.exports = (app) => {
 			fs.renameSync("uploads/"+req.file.filename ,"uploads/"+req.file.originalname);
 			cloudinary.uploader.upload("uploads/"+req.file.originalname, function(result){ 
 			  console.log(result);
-			  let image = new Image(JSON.stringify(result.url));
+			  let image = new Image(req.session.username,JSON.stringify(result.url));
 			  image.save(function(err){
 			  	if(err){
 			  		console.log(err);

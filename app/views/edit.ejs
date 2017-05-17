@@ -16,17 +16,15 @@
 			<button id="edit">edit</button>
 		</div>
 		<script type="text/javascript">
-		    var myimage = document.getElementById('image');
-		    console.log(myimage);
-			var canvas = convertImageToCanvas(myimage);
+			var canvas = convertImageToCanvas(document.querySelector('img'));
 			var ctx = canvas.getContext('2d');
 			ctx.filter = 'blur(50px)';
 
 			function convertImageToCanvas(image) {
 				var canvas = document.createElement("canvas");
-				canvas.width = 100;
-				canvas.height = 100;
-				canvas.getContext("2d").drawImage(image,100,100);
+				canvas.width = image.width;
+				canvas.height = image.height;
+				canvas.getContext("2d").drawImage(image,image.width,);
 
 				return canvas;
 			}
@@ -37,7 +35,7 @@
 		</script>
 		
 		<form action="/upload" method="POST" enctype="multipart/form-data" >
-            <input type='file' name="image" id = "image" >
+            <input type='file' name="image">
             <br>
             <input type="submit"  value="submit" >
 		</form>
