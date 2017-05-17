@@ -4,7 +4,7 @@
   "description": "A web app that allows users upload and edit photos",
   "main": "index.js",
   "engines": {
-    "node": "6.9.3",
+    "node": "6.10.10",
     "npm": "3.10.10"
   },
   "scripts": {
