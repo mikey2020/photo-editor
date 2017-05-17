@@ -5,10 +5,9 @@ $(document).ready(function(){
  $(".range").hide();
  $("#edit").click(function(){
  	$(".range").show();
- }
+ });
 
- );
- $("#blur").change(blur()).mousemove(blur());
+ $(".range").change(blur).mousemove(blur);
  $("#image_upload").change(function(){
 	readURL(this);
  });
@@ -67,16 +66,18 @@ function convertImageToCanvas(image) {
 
 function blur(){
 	var blur_val=$("#blur").val();
+	console.log(blur_val);
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
     var img = new Image();
     var img = document.getElementById("image");
-	console.log(img);
 	ctx.filter = "blur(" + blur_val + "px)";
 	ctx.drawImage(img,0,0,500,500);
+	img = ctx.drawImage(img,0,0,500,500).toDataURL('image/png');
+	console.log(img);
 }
 
-function sepia(){
+/*function sepia(){
 	var sepia_val=$("#sepia").val();
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
@@ -85,6 +86,6 @@ function sepia(){
 	console.log(img);
 	ctx.filter = "sepia(" + sepia_val + "px)";
 	ctx.drawImage(img,0,0,500,500);
-}
+}*/
 
 
