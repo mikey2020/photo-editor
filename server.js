@@ -1,4 +1,4 @@
-process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+//process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 //require('./config/express')(app);
 const express = require('./config/express');
