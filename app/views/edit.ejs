@@ -12,7 +12,7 @@
 		<div>
 	
 			<img src = "" id="image" height="500" width="500">
-			<button onclick="edit()" id="edit">edit</button>
+			<button  id="edit">edit</button>
 		</div>
 		
 		<canvas id="canvas" width="500" height="500"></canvas>
@@ -22,7 +22,14 @@
             <input type='file' name="image" id="image_upload">
             <br>
             <input type="submit"  value="submit" >
-            <li>Blur<br><input id="blur" class="range" type="range" min="0" max="10" value="0"></li>
+            <li>Blur<br><input id="blur" class="range" type="range" min="100" max="200" value="0"></li>
+            
+            <li>Exposure<br><input id="exposure" class="range" type="range" min="0" max="200" value="0"></li>
+ 
+			<li>Sepia<br><input id="sepia" class="range" type="range" min="100" max="200" value="0"></li>
+			 
+			<li>Opacity<br><input id="opacity" class="range" type="range" min="100" max="200" value="0"></li>
+
 		</form>
 
 		<script src ="javascripts/main.js"></script>

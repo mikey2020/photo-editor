@@ -8,7 +8,7 @@ $(document).ready(function(){
  }
 
  );
- $(".range").change(blur).mousemove(blur);
+ $("#blur").change(blur()).mousemove(blur());
  $("#image_upload").change(function(){
 	readURL(this);
  });
@@ -75,3 +75,16 @@ function blur(){
 	ctx.filter = "blur(" + blur_val + "px)";
 	ctx.drawImage(img,0,0,500,500);
 }
+
+function sepia(){
+	var sepia_val=$("#sepia").val();
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = new Image();
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.filter = "sepia(" + sepia_val + "px)";
+	ctx.drawImage(img,0,0,500,500);
+}
+
+
