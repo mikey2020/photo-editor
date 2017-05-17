@@ -1,6 +1,6 @@
 module.exports = {
   // Development configuration options 
-  db: 'mongodb://supermike:michael2017@host1:port1,host2:port2/photo-editor',
+  db: 'mongodb://supermike:michael2017@ds143231.mlab.com:43231/photo-editor',
   sessionSecret: 'myProductionSecret' 
 };
 
