@@ -8,7 +8,7 @@ const Image = require('mongoose').model("Image");
 const crypto = require('crypto');
 const path = require('path');
 const cloudinary = require('cloudinary');
-
+const request = require('request');
 cloudinary.config({ 
   cloud_name: 'photo-editor', 
   api_key: '169757236964799', 
@@ -18,6 +18,17 @@ cloudinary.config({
 /*cloudinary.uploader.upload("images/image.jpg", function(result) { 
   console.log(result);
 });*/
+
+
+var download = function(uri, filename, callback){
+	request.head(uri, function(err, res, body){
+		console.log('content-type:', res.headers['content-type']);
+		console.log('content-length:', res.headers['content-length']);
+
+		request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+	});
+};
+
 
 
 require('../../config/strategies/local');
@@ -44,10 +55,15 @@ module.exports = (app) => {
 
 			  })
 			}); 
-
-
 		}
 	});
+
+	app.post('/download',(req,res) =>{
+
+		download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
+		  console.log('done');
+		});
+	})
 
 	app.get('/signin',user.renderSignIn);
 	
