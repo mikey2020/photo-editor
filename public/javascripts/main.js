@@ -3,13 +3,24 @@ alert('javascript connected');
 $(document).ready(function(){
  
  $(".range").hide();
- $(".range").change(add_filter).mousemove(add_filter);
+ $("#edit").click(function(){
+ 	$(".range").show();
+ }
+
+ );
+ $(".range").change(blur).mousemove(blur);
  $("#image_upload").change(function(){
 	readURL(this);
  });
 
 
+
 });
+
+ /*function edit(){
+ 	blur()
+ };*/
+
 
 function readURL(input) {
 
@@ -38,6 +49,7 @@ function add_filter()
 }
 
 
+
 function convertCanvasToImage(canvas) {
 	var image = new Image();
 	image.src = canvas.toDataURL("image/png");
@@ -52,7 +64,14 @@ function convertImageToCanvas(image) {
 
 	return canvas;
 }
+
 function blur(){
-	var canvas = convertImageToCanvas(document.querySelector('img'));
-	canvas.getContext('2d').filter = 'blur(50px)';
+	var blur_val=$("#blur").val();
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = new Image();
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.filter = "blur(" + blur_val + "px)";
+	ctx.drawImage(img,0,0,500,500);
 }
