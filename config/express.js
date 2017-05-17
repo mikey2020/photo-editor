@@ -42,7 +42,6 @@ module.exports = () => {
 
 	app.use(passport.session());
 
-
     app.use(flash());
 
 	app.set('views', './app/views');  

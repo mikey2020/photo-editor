@@ -27,15 +27,17 @@ exports.signUp = (req,res) => {
 }
 
 exports.renderEdit = (req,res) => {
-	res.render('edit',{});
+	//console.log(req.user.username);
+	//if(req.user){
+	res.render('edit',{
+		image: ""
+	});
+	
+	
 }
 
 exports.upload = (req,res) => {
-  console.log(req.file);
-
-  if(req.file){
-  	console.log("File Uploaded");
-  }
+ 
 }
 
 exports.renderSignIn = (req,res) => {

@@ -4,6 +4,9 @@ exports.render = (req,res) => {
 	    	console.log(req.session.lastVisit);
 	    }
 	    req.session.lastVisit = new Date();
+	    
+		req.session.username = req.user.username;
+	
 		res.render('index',{
 			name: req.user.fullname
 		});
