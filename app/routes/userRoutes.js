@@ -28,12 +28,21 @@ module.exports = (app) => {
 	app.get('/edit',user.renderEdit);
 
 	app.post('/upload',uploads.single('image'),(req,res) =>{
-		if(req.file){
+		if(req.file && req.session.username){
 			console.log(req.file.filename);
 			fs.renameSync("uploads/"+req.file.filename ,"uploads/"+req.file.originalname);
-			cloudinary.uploader.upload("uploads/"+req.file.originalname, function(result) { 
+			cloudinary.uploader.upload("uploads/"+req.file.originalname, function(result){ 
 			  console.log(result);
-			  let image = new Image(result.url);
+			  let image = new Image(JSON.stringify(result.url));
+			  image.save(function(err){
+			  	if(err){
+			  		console.log(err);
+			  	}
+			  	else{
+			  		res.json(image);
+			  	}
+
+			  })
 			}); 
 
 

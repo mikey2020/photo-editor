@@ -6,8 +6,6 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const fs = require('fs');
 
-
-const validExtensions = ['jpg','png'];
 exports.renderSignUp = (req,res) => {
 	res.render('signup',{
 	});
@@ -29,10 +27,11 @@ exports.signUp = (req,res) => {
 exports.renderEdit = (req,res) => {
 	//console.log(req.user.username);
 	//if(req.user){
-	res.render('edit',{
-		image: ""
-	});
-	
+	if(req.session.username){
+		res.render('edit',{
+			image: ""
+		});
+	}
 	
 }
 
