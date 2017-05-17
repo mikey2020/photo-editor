@@ -73,8 +73,9 @@ function blur(){
     var img = document.getElementById("image");
 	ctx.filter = "blur(" + blur_val + "px)";
 	ctx.drawImage(img,0,0,500,500);
-	img = ctx.drawImage(img,0,0,500,500).toDataURL('image/png');
-	console.log(img);
+	var img = new Image();
+	img.src = ctx.drawImage(img,0,0,500,500).toDataURL('image/png');
+	console.log(img.src);
 }
 
 /*function sepia(){
