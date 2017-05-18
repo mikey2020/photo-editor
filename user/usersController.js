@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
-const fs = require('fs');
+//const fs = require('fs');
 
 
 const getErrorMessage = function(err) {  
