@@ -12,6 +12,8 @@ const passport = require('passport');
 const db = require('./db');
 const pass = require('./passport.js');
 
+const user = require('./user/usersController.js');
+const index = require('./index/indexController.js');
 let app = express();
 
 
@@ -47,6 +49,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(flash());
+
+app.use('/',user.index);
 
 app.set('views', './views');  
 app.set('view engine', 'ejs');
