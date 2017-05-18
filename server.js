@@ -3,7 +3,7 @@
 //require('./config/express')(app);
 const express = require('./config/express');
 const mongoose = require('./config/mongoose');
-const passport = require('./config/passport')
+const passport = require('./config/passport');
 
 const app = express();
 const db = mongoose();

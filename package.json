@@ -2,7 +2,7 @@
   "name": "photo-editor",
   "version": "1.0.0",
   "description": "A web app that allows users upload and edit photos",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": "6.10.0",
     "npm": "3.10.10"
