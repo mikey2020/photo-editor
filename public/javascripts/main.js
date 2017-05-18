@@ -25,6 +25,11 @@ $(document).ready(function(){
  $("#invert").change(invert);
  $("#hue").change(hueRotation);
  $("#contrast").change(contrast);
+ $("#special1").change(special1);
+ $("#special2").change(special2);
+ $("#special3").change(special3);
+ $("#special4").change(special4);
+ $("#special5").change(special5);
  
 
  var grayscale_val=$("#grayscale").val();
@@ -215,3 +220,78 @@ function dropShadow(){
 }
 
 
+function special1(){
+	var special1_val=$("#special1").val();
+	console.log(special_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "saturate(" + special1_val + "%) invert(" + special1_val + "%)";
+	console.log(img);
+}
+
+
+function special2(){
+	var special2_val=$("#special2").val();
+	console.log(special2_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "brightness(" + special1_val + "%) greyscale(" + special1_val + "%)";
+	console.log(img);
+}
+
+function special2(){
+	var special2_val=$("#special2").val();
+	console.log(special2_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "blur(" + special2_val + "%) greyscale(" + special2_val + "%)";
+	console.log(img);
+}
+
+function special3(){
+	var special3_val=$("#special3").val();
+	console.log(special3_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "sepia(" + special3_val + "%) contrast(" + special3_val + "%)";
+	console.log(img);
+
+}
+
+function special4(){
+	var special4_val=$("#special4").val();
+	console.log(special4_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "brightness(" + special4_val + "%) saturation(" + special4_val + "%)";
+	console.log(img);
+
+}
+
+function special5(){
+	var special5_val=$("#special5").val();
+	console.log(special5_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "blur(" + special5_val + "%) greyscale(" + special5_val + "%)";
+	console.log(img);
+
+}

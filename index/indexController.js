@@ -8,8 +8,8 @@ exports.render = (req,res) => {
 				console.log(err);
 			}
 			else{
-				docs = JSON.parse(docs);
-				console.log(docs["photo"]);
+				//data = JSON.parse(docs);
+				console.log(docs[0].photo);
 				if(req.session.lastVisit){
 	    			console.log(req.session.lastVisit);
 	    		}

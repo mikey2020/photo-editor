@@ -17,8 +17,10 @@
 
 <p>Hello <%=name%></p>
 
+<h2> Your Photos </h2>
+
 <%for(var image in images){ %>
-	<p><%=images[image]%></p>
+	<p><img src = <%=images[image].photo%> ></p>
 <%}%>
 
 
