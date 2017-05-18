@@ -42,6 +42,7 @@ app.use(session({
 	resave: false,
 
 	saveUninitialized: true
+
 }));
 
 app.use(passport.initialize());
@@ -55,8 +56,8 @@ app.get('/',user.index);
 app.set('views', './views');  
 app.set('view engine', 'ejs');
 
-require('./user/userRoutes.js')(app);
-require('./index/indexRoutes.js')(app);
+//require('./user/userRoutes.js')(app);
+//require('./index/indexRoutes.js')(app);
  
  
 	
