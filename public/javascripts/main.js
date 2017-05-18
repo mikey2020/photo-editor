@@ -59,7 +59,7 @@ function convertImageToCanvas(image) {
 	var canvas = document.createElement("canvas");
 	canvas.width = image.width;
 	canvas.height = image.height;
-	canvas.getContext("2d").drawImage(image, 100, 100);
+	canvas.getContext("2d").drawImage(image, 0, 0,500,500);
 
 	return canvas;
 }
@@ -69,14 +69,15 @@ function blur(){
 	console.log(blur_val);
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
-    var img = new Image();
+    var image = new Image();
     var img = document.getElementById("image");
 	ctx.filter = "blur(" + blur_val + "px)";
 	ctx.drawImage(img,0,0,500,500);
-	var img = new Image();
-	img.src = ctx.drawImage(img,0,0,500,500).toDataURL('image/png');
-	console.log(img.src);
+	image.src = ctx.drawImage(img,0,0,500,500).toDataURL("image/png");
+	
+	console.log(img);
 }
+
 
 /*function sepia(){
 	var sepia_val=$("#sepia").val();
