@@ -7,20 +7,31 @@ $(document).ready(function(){
  	$(".range").show();
  	$("#image").hide();
  });
-
- $("#blur").change(blur);//mousemove(blur);
+  $("#image_upload").change(function(){
+	readURL(this);
+  });
+ /*$("#blur").change(blur);//mousemove(blur);
  $("#sepia").change(sepia);
  $("#brightness").change(brightness);
  $("#opacity").change(opacity);
  $("#saturate").change(saturation);
- $("#image_upload").change(function(){
-	readURL(this);
+ 
+ */
+
+ var grayscale_val=$("#grayscale").val();
+ var blur_val=$("#blur").val();
+ var exposure_val=$("#exposure").val();
+ //var sepia_val=$("#sepia").val();
+ var opacity_val=$("#opacity").val();
+
+ $(".range").change(function(){
+ 	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "saturate(" + saturate_val + "%) grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)";
  });
-
-$(".range").change()
-
-
-});
 
  /*function edit(){
  	blur()
@@ -50,7 +61,15 @@ function add_filter()
  //var sepia_val=$("#sepia").val();
  var opacity_val=$("#opacity").val();
 
- $("#photo").css("-webkit-filter","grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)");
+ $(".range").change(function(){
+ 	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "saturate(" + saturate_val + "%) grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)";
+ });
+ //.css("-webkit-filter","grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)");
 }
 
 function getImage(){

@@ -8,7 +8,7 @@ exports.render = (req,res) => {
 				console.log(err);
 			}
 			else{
-				console.log(docs);
+				console.log(docs.photo);
 				if(req.session.lastVisit){
 	    			console.log(req.session.lastVisit);
 	    		}

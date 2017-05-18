@@ -5,11 +5,10 @@
 </head>  
 <body>   
 <h1>Welcome to <%= title %></h1>  
-<% if(name) { %>
-	<p>Hello <%=name%></p>
-<% } %>
-<%for(let image in images){<%>
-	<img src=<%=image%>>
+<p>Hello <%=name%></p>
+
+<%for(var image in images){ %>
+	<%=images[image]%>
 <%}%>
 
 </body> 
