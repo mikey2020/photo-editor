@@ -6,7 +6,6 @@ const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const fs = require('fs');
 
-const path = require('path');
 
 const getErrorMessage = function(err) {  
   let message = '';
@@ -61,12 +60,6 @@ exports.renderEdit = (req,res) => {
 	});
 }
 
-
-
-
-exports.upload = (req,res) => {
- 
-}
 
 
 exports.renderSignIn = (req,res) => {
