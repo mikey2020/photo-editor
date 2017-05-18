@@ -7,8 +7,9 @@ $(document).ready(function(){
  	$(".range").show();
  	$("#image").hide();
  });
+
   $("#image_upload").change(function(){
-	readURL(this);
+		readURL(this);
   });
  /*$("#blur").change(blur);//mousemove(blur);
  $("#sepia").change(sepia);
@@ -20,22 +21,25 @@ $(document).ready(function(){
 
  var grayscale_val=$("#grayscale").val();
  var blur_val=$("#blur").val();
- var exposure_val=$("#exposure").val();
+ var brightness_val=$("#brightness").val();
  //var sepia_val=$("#sepia").val();
  var opacity_val=$("#opacity").val();
-
+ var saturate_val=$("#saturate").val();
+ var sepia_val=$("sepia").val();
  $(".range").change(function(){
  	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
     var img = document.getElementById("image");
 	console.log(img);
 	ctx.drawImage(img,0,0,500,500);
-	ctx.filter = "saturate(" + saturate_val + "%) grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)";
+	ctx.filter = "saturate(" + saturate_val + "%) grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+brightness_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)";
  });
 
  /*function edit(){
  	blur()
  };*/
+
+});
 
 
 function readURL(input) {
@@ -52,7 +56,7 @@ function readURL(input) {
   
 }
 
-let init = 0	
+
 function add_filter()
 {
  var grayscale_val=$("#grayscale").val();
