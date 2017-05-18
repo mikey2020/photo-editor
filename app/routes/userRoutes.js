@@ -1,4 +1,6 @@
 require('../models/photoModel');
+
+
 const user = require('../controllers/usersController');
 const multer = require('multer');
 const uploads = multer({ dest: 'uploads/'});
@@ -9,6 +11,7 @@ const crypto = require('crypto');
 const path = require('path');
 const cloudinary = require('cloudinary');
 const request = require('request');
+
 cloudinary.config({ 
   cloud_name: 'photo-editor', 
   api_key: '169757236964799', 
@@ -19,6 +22,7 @@ cloudinary.config({
   console.log(result);
 });*/
 
+require('../../config/strategies/local');
 
 var download = function(uri, filename, callback){
 	request.head(uri, function(err, res, body){
@@ -31,7 +35,7 @@ var download = function(uri, filename, callback){
 
 
 
-require('../../config/strategies/local');
+
 
 module.exports = (app) => {
 	app.get('/signup',user.renderSignUp);

@@ -1,3 +1,4 @@
+require('../models/photoModel');
 const Photo = require('mongoose').model("Photo");
 
 exports.render = (req,res) => {
@@ -8,19 +9,21 @@ exports.render = (req,res) => {
 			}
 			else{
 				console.log(docs);
+				if(req.session.lastVisit){
+	    			console.log(req.session.lastVisit);
+	    		}
+			    req.session.lastVisit = new Date();
+			    
+				req.session.username = req.user.username;
+				console.log(req.session.username);
+			
+				res.render('index',{
+					name: req.user.fullname,
+					images: docs
+				});
 			}
 		})
-	    if(req.session.lastVisit){
-	    	console.log(req.session.lastVisit);
-	    }
-	    req.session.lastVisit = new Date();
 	    
-		req.session.username = req.user.username;
-		console.log(req.session.username);
-	
-		res.render('index',{
-			name: req.user.fullname
-		});
 	}
 	else{
 		res.redirect('/signin');

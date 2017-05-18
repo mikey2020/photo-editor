@@ -5,13 +5,19 @@ $(document).ready(function(){
  $(".range").hide();
  $("#edit").click(function(){
  	$(".range").show();
+ 	$("#image").hide();
  });
 
- $(".range").change(blur).mousemove(blur);
+ $("#blur").change(blur);//mousemove(blur);
+ $("#sepia").change(sepia);
+ $("#brightness").change(brightness);
+ $("#opacity").change(opacity);
+ $("#saturate").change(saturation);
  $("#image_upload").change(function(){
 	readURL(this);
  });
 
+$(".range").change()
 
 
 });
@@ -35,7 +41,7 @@ function readURL(input) {
   
 }
 
-	
+let init = 0	
 function add_filter()
 {
  var grayscale_val=$("#grayscale").val();
@@ -47,7 +53,12 @@ function add_filter()
  $("#photo").css("-webkit-filter","grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)");
 }
 
-
+function getImage(){
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+    ctx.drawImage(image,0,0,500,500);
+}
 
 function convertCanvasToImage(canvas) {
 	var image = new Image();
@@ -69,25 +80,78 @@ function blur(){
 	console.log(blur_val);
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
-    var image = new Image();
+    var image = document.getElementById("image");
+    ctx.drawImage(image,0,0,500,500);
+    ctx.filter = "blur(" + blur_val + "px)";
+    //var image_url = canvas.toDataURL("image/png");
+    //console.log(image_url);
+   
+	console.log(image);
+}
+
+
+
+function sepia(){
+	var sepia_val=$("#sepia").val();
+	console.log(sepia_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
     var img = document.getElementById("image");
-	ctx.filter = "blur(" + blur_val + "px)";
+	console.log(img);
 	ctx.drawImage(img,0,0,500,500);
-	image.src = ctx.drawImage(img,0,0,500,500).toDataURL("image/png");
-	
+	ctx.filter = "sepia(" + sepia_val + "px)";
+	console.log(img);
+}
+
+function brightness(){
+	var brightness_val=$("#brightness").val();
+	console.log(brightness_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "brightness(" + brightness_val + "%)";
+	console.log(img);
+}
+
+function opacity(){
+	var opacity_val=$("#opacity").val();
+	console.log(opacity_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "opacity(" + opacity_val + "%)";
+	console.log(img);
+}
+
+function saturation(){
+	var saturate_val=$("#saturate").val();
+	console.log(saturate_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "saturate(" + saturate_val + "%) grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)";
+	console.log(img);
+}
+
+function greyscale(){
+	var saturate_val=$("#saturate").val();
+	console.log(saturate_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "greyscale(" + saturate_val + "%) ";
 	console.log(img);
 }
 
 
-/*function sepia(){
-	var sepia_val=$("#sepia").val();
-	var canvas = document.getElementById("canvas");
-	var ctx = canvas.getContext("2d");
-    var img = new Image();
-    var img = document.getElementById("image");
-	console.log(img);
-	ctx.filter = "sepia(" + sepia_val + "px)";
-	ctx.drawImage(img,0,0,500,500);
-}*/
+	
 
 
