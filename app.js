@@ -50,7 +50,7 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.use('/',user.index);
+app.get('/',user.index);
 
 app.set('views', './views');  
 app.set('view engine', 'ejs');
