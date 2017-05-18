@@ -8,9 +8,9 @@ const passport = require('passport');
 const fs = require('fs');
 const Photo = require('mongoose').model("Photo");
 const crypto = require('crypto');
-const path = require('path');
+//const path = require('path');
 const cloudinary = require('cloudinary');
-const request = require('request');
+//const request = require('request');
 
 cloudinary.config({ 
   cloud_name: 'photo-editor', 
