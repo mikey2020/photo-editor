@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const compress = require('compression');
 const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
+//const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const path = require('path');
 const flash = require('connect-flash');
@@ -26,7 +26,7 @@ app.locals.title = "Photo Editor";
 
 app.use(bodyParser.urlencoded({extended: true}));  
 
-app.use(cookieParser());
+//app.use(cookieParser());
 
 app.use(bodyParser.json());  
 	
