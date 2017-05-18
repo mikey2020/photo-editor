@@ -13,11 +13,9 @@ const pass = require('./passport.js');
 
 let app = express();
 
+//app.use(morgan('dev'));
 
-
-app.use(morgan('dev'));
-
-app.use(compress());
+//app.use(compress());
 
 app.locals.title = "Photo Editor";
 
