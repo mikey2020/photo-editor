@@ -15,6 +15,7 @@ const pass = require('./passport.js');
 const user = require('./user/usersController.js');
 const index = require('./index/indexController.js');
 let app = express();
+var router = express.Router();
 
 
 //app.use(logger('dev'));
@@ -51,7 +52,7 @@ app.use(passport.session());
 
 app.use(flash());
 
-app.get('/',user.index);
+router.get('/',user.index);
 
 app.set('views', './views');  
 app.set('view engine', 'ejs');
