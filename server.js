@@ -9,11 +9,8 @@ const app = express();
 const db = mongoose();
 const pass = passport();
 
-let port = 3000;
-
-app.listen(port);
-
+app.set("port",process.env.PORT||3000);
 
 module.exports = app;
 
-console.log("Server listening at port " + port);
+console.log("Server listening at port " + 3000);
