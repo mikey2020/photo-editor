@@ -1,5 +1,5 @@
 require('../user/photoModel');
-const Photo = require('mongoose').model("Photo");
+var Photo = require('mongoose').model("Photo");
 
 exports.render = (req,res) => {
 	if(req.user){
