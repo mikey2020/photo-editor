@@ -27,9 +27,38 @@ require('../local');
 
 
 module.exports = (app) => {
-	app.get('/signup',user.renderSignUp);
-	app.post('/signup',user.signUp);
-	app.get('/edit',user.renderEdit);
+	app.get('/signup',(req,res) => {
+		
+		res.render('signup',{
+		})
+
+	});
+
+	app.post('/signup', (req,res) => {
+		let user = new User(req.body);
+
+		user.save(function(err){
+			if(err){
+				var message = getErrorMessage(err);
+				req.flash('error',message);
+				res.redirect('/signup');
+			}
+			else{
+				console.log(user);
+				var prompt = "Please sign in  here";
+				req.flash('info',prompt);
+				res.redirect('/signin');
+			}
+		})
+
+	});
+
+	app.get('/edit',(req,res) => {
+
+		res.render('edit',{
+			image: ""
+		});
+	});
 
 
 	app.post('/upload',uploads.single('image'),(req,res) =>{
@@ -61,7 +90,17 @@ module.exports = (app) => {
 		});
 	})*/
 
-	app.get('/signin',user.renderSignIn);
+	app.get('/signin',(req,res) => {
+		if(!req.user){
+			res.render('signin',{
+				messages: req.flash('error') 
+			});
+		}
+
+		else{
+			res.redirect('/');
+		}
+	});
 	
 	app.post('/signin', 
 		passport.authenticate('local',{ successRedirect: '/',
