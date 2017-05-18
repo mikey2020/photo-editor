@@ -54,10 +54,15 @@ module.exports = (app) => {
 	});
 
 	app.get('/edit',(req,res) => {
-
-		res.render('edit',{
-			image: ""
-		});
+		if(req.user){
+			res.render('edit',{
+				image: ""
+			});
+		}
+		else{
+			res.redirect('/signin');
+		}
+		
 	});
 
 
@@ -107,4 +112,10 @@ module.exports = (app) => {
                                    failureRedirect: '/signin',
                                    failureFlash: true })
 	);
+
+
+	app.get('/logout',(req,res) => {
+		req.logout();
+		res.redirect('/signin');
+	})
 };

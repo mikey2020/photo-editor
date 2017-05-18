@@ -8,7 +8,8 @@ exports.render = (req,res) => {
 				console.log(err);
 			}
 			else{
-				console.log(docs.photo);
+				docs = JSON.parse(docs);
+				console.log(docs["photo"]);
 				if(req.session.lastVisit){
 	    			console.log(req.session.lastVisit);
 	    		}
@@ -16,7 +17,7 @@ exports.render = (req,res) => {
 			    
 				req.session.username = req.user.username;
 				console.log(req.session.username);
-			
+			    
 				res.render('index',{
 					name: req.user.fullname,
 					images: docs

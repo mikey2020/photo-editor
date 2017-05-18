@@ -2,10 +2,12 @@
 <html> 
 <head>    
 <title><%= title %></title>  
-</head>  
+</head> 
+<% include temps/header.ejs %>
 <body>   
 <h1>Welcome to <%= title %></h1>  
 
+<a href="/logout">logout</a>
 <!--<div>
 	<form method="post" enctype="multipart/form-data" action="/upload">
 		    <input type="file" name="file">
@@ -16,8 +18,9 @@
 <p>Hello <%=name%></p>
 
 <%for(var image in images){ %>
-	<%=images[image]%>
+	<p><%=images[image]%></p>
 <%}%>
+
 
 </body> 
 </html>

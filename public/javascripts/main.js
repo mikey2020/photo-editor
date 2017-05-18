@@ -16,13 +16,16 @@ $(document).ready(function(){
   $("#image_upload").change(function(){
 		readURL(this);
   });
- /*$("#blur").change(blur);//mousemove(blur);
+ $("#blur").change(blur);//mousemove(blur);
  $("#sepia").change(sepia);
  $("#brightness").change(brightness);
  $("#opacity").change(opacity);
  $("#saturate").change(saturation);
+ $("#greyscale").change(greyscale);
+ $("#invert").change(invert);
+ $("#hue").change(hueRotation);
+ $("#contrast").change(contrast);
  
- */
 
  var grayscale_val=$("#grayscale").val();
  var blur_val=$("#blur").val();
@@ -59,7 +62,7 @@ function readURL(input) {
 }
 
 
-function add_filter()
+/*function add_filter()
 {
  var grayscale_val=$("#grayscale").val();
  var blur_val=$("#blur").val();
@@ -77,7 +80,7 @@ function add_filter()
  });
  //.css("-webkit-filter","grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+exposure_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)");
 }
-
+*/
 function getImage(){
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
@@ -85,20 +88,6 @@ function getImage(){
     ctx.drawImage(image,0,0,500,500);
 }
 
-function convertCanvasToImage(canvas) {
-	var image = new Image();
-	image.src = canvas.toDataURL("image/png");
-	return image;
-}
-
-function convertImageToCanvas(image) {
-	var canvas = document.createElement("canvas");
-	canvas.width = image.width;
-	canvas.height = image.height;
-	canvas.getContext("2d").drawImage(image, 0, 0,500,500);
-
-	return canvas;
-}
 
 function blur(){
 	var blur_val=$("#blur").val();
@@ -165,18 +154,64 @@ function saturation(){
 }
 
 function greyscale(){
-	var saturate_val=$("#saturate").val();
-	console.log(saturate_val);
+	var greyscale_val=$("#greyscale").val();
+	console.log(greyscale_val);
 	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
     var img = document.getElementById("image");
 	console.log(img);
 	ctx.drawImage(img,0,0,500,500);
-	ctx.filter = "greyscale(" + saturate_val + "%) ";
+	ctx.filter = "greyscale(" + greyscale_val + "%) ";
 	console.log(img);
 }
 
+function contrast(){
+	var contrast_val=$("#contrast").val();
+	console.log(contrast_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "contrast(" + contrast_val + "%) ";
+	console.log(img);
+}
 
 	
+function invert(){
+	var invert_val=$("#invert").val();
+	console.log(invert_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "invert(" + invert_val + "%) ";
+	console.log(img);
+}
+
+function hueRotation(){
+	var hue_val=$("#hue").val();
+	console.log(hue_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "hue-rotation(" + hue_val + "deg) ";
+	console.log(img);
+}
+
+function dropShadow(){
+	var drop_val=$("#drop").val();
+	console.log(drop_val);
+	var canvas = document.getElementById("canvas");
+	var ctx = canvas.getContext("2d");
+    var img = document.getElementById("image");
+	console.log(img);
+	ctx.drawImage(img,0,0,500,500);
+	ctx.filter = "drop-shadow(" + drop_val + "%) ";
+	console.log(img);
+}
 
 
