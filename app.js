@@ -10,12 +10,10 @@ const session = require('express-session');
 const passport = require('passport');
 
 const db = require('./db');
-const pass = require('./passport.js');
 
-const user = require('./user/usersController.js');
-const index = require('./index/indexController.js');
+
 let app = express();
-var router = express.Router();
+
 
 
 //app.use(logger('dev'));
@@ -52,13 +50,12 @@ app.use(passport.session());
 
 app.use(flash());
 
-router.get('/',user.index);
 
 app.set('views', './views');  
 app.set('view engine', 'ejs');
 
-//require('./user/userRoutes.js')(app);
-//require('./index/indexRoutes.js')(app);
+require('./user/userRoutes.js')(app);
+require('./index/indexRoutes.js')(app);
  
  
 	
