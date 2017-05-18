@@ -5,14 +5,20 @@
 </head>  
 <body>   
 <h1>Welcome to <%= title %></h1>  
-<% if(name) { %>
-	<p>Hello <%=name%></p>
-<% } %>
+<<<<<<< HEAD
 <div>
 	<form method="post" enctype="multipart/form-data" action="/upload">
 		    <input type="file" name="file">
 		    <input type="submit" value="upload file">
 	</form>
 </div>
+=======
+<p>Hello <%=name%></p>
+
+<%for(var image in images){ %>
+	<%=images[image]%>
+<%}%>
+
+>>>>>>> development
 </body> 
 </html>

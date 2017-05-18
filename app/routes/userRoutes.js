@@ -1,20 +1,79 @@
+require('../models/photoModel');
+
+
 const user = require('../controllers/usersController');
 const multer = require('multer');
-const uploads = multer({ dest: 'uploads/' });
+const uploads = multer({ dest: 'uploads/'});
 const passport = require('passport');
+const fs = require('fs');
+const Photo = require('mongoose').model("Photo");
+const crypto = require('crypto');
+const path = require('path');
+const cloudinary = require('cloudinary');
+const request = require('request');
+
+cloudinary.config({ 
+  cloud_name: 'photo-editor', 
+  api_key: '169757236964799', 
+  api_secret: 'KYDwlwNwlzCc7fcqeCtz0BqEbcQ' 
+});
+
+/*cloudinary.uploader.upload("images/image.jpg", function(result) { 
+  console.log(result);
+});*/
+
 require('../../config/strategies/local');
+
+var download = function(uri, filename, callback){
+	request.head(uri, function(err, res, body){
+		console.log('content-type:', res.headers['content-type']);
+		console.log('content-length:', res.headers['content-length']);
+
+		request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+	});
+};
+
+
+
+
 
 module.exports = (app) => {
 	app.get('/signup',user.renderSignUp);
 	app.post('/signup',user.signUp);
 	app.get('/edit',user.renderEdit);
-	app.post('/upload',uploads.any(),function(req,res){
-		if(req.files){
-			res.render('edit',{
-				image: 'uploads/' + req.files.filename
-			})
+<<<<<<< HEAD
+=======
+
+	app.post('/upload',uploads.single('image'),(req,res) =>{
+		if(req.file && req.session.username){
+			console.log(req.file.filename);
+			fs.renameSync("uploads/"+req.file.filename ,"uploads/"+req.file.originalname);
+			cloudinary.uploader.upload("uploads/"+req.file.originalname, function(result){ 
+			  console.log(result);
+			  let image = new Photo({"username":req.session.username , "photo":result.url});
+			  image.save(function(err){
+			  	if(err){
+			  		console.log(err);
+			  		res.redirect('/edit');
+			  	}
+			  	else{
+			  		console.log(image);
+			  		res.redirect('/');
+			  	}
+
+			  })
+			}); 
 		}
 	});
+
+	app.post('/download',(req,res) =>{
+
+		download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
+		  console.log('done');
+		});
+	})
+
+>>>>>>> development
 	app.get('/signin',user.renderSignIn);
 	
 	app.post('/signin', 
