@@ -1,6 +1,6 @@
 module.exports = {
   // Development configuration options 
-  db: 'mongodb://supermike:michael2017@ds143231.mlab.com:43231/photo-editor',
+  db: 'mongodb://flash:michael@ds161410.mlab.com:61410/photo-editor',
   sessionSecret: 'myProductionSecret' 
 };
 
