@@ -13,13 +13,11 @@ const pass = require('./passport.js');
 
 let app = express();
 
-if(process.env.NODE_ENV === "development"){
-	app.use(morgan('dev'));
-}
 
-else if(process.env.NODE_ENV === "production"){
-	app.use(compress());
-}
+
+app.use(morgan('dev'));
+
+app.use(compress());
 
 app.locals.title = "Photo Editor";
 
