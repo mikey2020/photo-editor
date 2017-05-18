@@ -1,4 +1,4 @@
-require('../models/photoModel');
+require('../user/photoModel');
 const Photo = require('mongoose').model("Photo");
 
 exports.render = (req,res) => {

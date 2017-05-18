@@ -1,7 +1,7 @@
-require('../models/photoModel');
+require('./photoModel');
 
 
-const user = require('../controllers/usersController');
+const user = require('./usersController');
 const multer = require('multer');
 const uploads = multer({ dest: 'uploads/'});
 const passport = require('passport');
@@ -22,18 +22,7 @@ cloudinary.config({
   console.log(result);
 });*/
 
-require('../../config/strategies/local');
-
-var download = function(uri, filename, callback){
-	request.head(uri, function(err, res, body){
-		console.log('content-type:', res.headers['content-type']);
-		console.log('content-length:', res.headers['content-length']);
-
-		request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
-	});
-};
-
-
+require('../local');
 
 
 
@@ -41,8 +30,7 @@ module.exports = (app) => {
 	app.get('/signup',user.renderSignUp);
 	app.post('/signup',user.signUp);
 	app.get('/edit',user.renderEdit);
-<<<<<<< HEAD
-=======
+
 
 	app.post('/upload',uploads.single('image'),(req,res) =>{
 		if(req.file && req.session.username){
@@ -66,14 +54,13 @@ module.exports = (app) => {
 		}
 	});
 
-	app.post('/download',(req,res) =>{
+	/*app.post('/download',(req,res) =>{
 
 		download('https://www.google.com/images/srpr/logo3w.png', 'google.png', function(){
 		  console.log('done');
 		});
-	})
+	})*/
 
->>>>>>> development
 	app.get('/signin',user.renderSignIn);
 	
 	app.post('/signin', 

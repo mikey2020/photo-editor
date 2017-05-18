@@ -1,13 +1,12 @@
-require('../models/userModel');
+require('./userModel');
 
 const mongoose = require('mongoose');
 const User = mongoose.model('User');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 const fs = require('fs');
-<<<<<<< HEAD
+
 const path = require('path');
-=======
 
 const getErrorMessage = function(err) {  
   let message = '';
@@ -30,7 +29,7 @@ const getErrorMessage = function(err) {
   return message; 
 };
 
->>>>>>> development
+
 
 exports.renderSignUp = (req,res) => {
 	res.render('signup',{
@@ -50,25 +49,25 @@ exports.signUp = (req,res) => {
 			console.log(user);
 			var prompt = "Please sign in  here";
 			req.flash('info',prompt);
-			res.redirect('/login');
+			res.redirect('/signin');
 		}
 	})
 }
 
 exports.renderEdit = (req,res) => {
-<<<<<<< HEAD
+
 	res.render('edit',{
 		image: ""
 	});
 }
 
 
-=======
+
 
 exports.upload = (req,res) => {
  
 }
->>>>>>> development
+
 
 exports.renderSignIn = (req,res) => {
 	if(!req.user){

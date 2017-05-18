@@ -1,5 +1,5 @@
-var passport = require('passport');
-var mongoose = require('mongoose');
+const passport = require('passport');
+const mongoose = require('mongoose');
 
 
 module.exports = function(){
@@ -16,5 +16,5 @@ module.exports = function(){
   		});
 	});
 
-	require('./strategies/local.js');
+	require('./local.js');
 };

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema ;
 
@@ -12,4 +12,4 @@ const PhotoSchema = new Schema({
 module.exports = mongoose.model("Photo",PhotoSchema);
 
 
->>>>>>> development
+

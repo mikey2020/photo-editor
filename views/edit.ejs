@@ -9,24 +9,7 @@
 	<body>   
 		
 		<h1>Welcome to <%= title %> edit page </h1> 
-<<<<<<< HEAD
-		<div id = "photo">
-			<img src = <%=image%> >
-		</div>
 
-		<BUTTON id = "edit_control"> Edit </BUTTON>
-		<li>GrayScale<br><input id="grayscale" class="range" type="range" min="0" max="100" value="0"></li>
- 
-		 <li>Blur<br><input id="blur" class="range" type="range" min="0" max="10" value="0"></li>
-		 
-		 <li>Exposure<br><input id="exposure" class="range" type="range" min="0" max="200" value="100"></li>
-		 
-		 <li>Sepia<br><input id="sepia" class="range" type="range" min="0" max="100" value="0"></li>
-		 
-		 <li>Opacity<br><input id="opacity" class="range" type="range" min="0" max="100" value="100">
-		 </li>
-		<button id = "save"> Save Edit</button>
-=======
 		<div>
 			
 			<img src = "" id="image" height="500" width="500">
@@ -39,7 +22,7 @@
 		<form  action="/upload" method="POST" enctype="multipart/form-data" >
             <input type='file' name="image" id="image_upload">
             <br>
-            <input type="submit"  value="Save Image" >
+            <input type="submit"  value="Save Image"  id="save">
             <li>Blur<br><input id="blur" class="range" type="range" min="0" max="200" value="0"></li>
             
             <li>Brightness<br><input id="brightness" class="range" type="range" min="0" max="200" value="0"></li>
@@ -54,6 +37,6 @@
 
 		<script src ="javascripts/main.js"></script>
 				
->>>>>>> development
+
 	</body> 
 </html>

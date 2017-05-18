@@ -3,14 +3,11 @@ alert('javascript connected');
 $(document).ready(function(){
  
  $(".range").hide();
-<<<<<<< HEAD
- $(".range").change(add_filter).mousemove(add_filter);
- $("#edit_control").click(function() { $
- 	(".range").show()});
+
 
  $("#save").click(function() { $
  	(".range").hide()});
-=======
+
  $("#edit").click(function(){
  	$(".range").show();
  	$("#image").hide();
@@ -30,10 +27,10 @@ $(document).ready(function(){
  var grayscale_val=$("#grayscale").val();
  var blur_val=$("#blur").val();
  var brightness_val=$("#brightness").val();
- //var sepia_val=$("#sepia").val();
  var opacity_val=$("#opacity").val();
  var saturate_val=$("#saturate").val();
  var sepia_val=$("sepia").val();
+ 
  $(".range").change(function(){
  	var canvas = document.getElementById("canvas");
 	var ctx = canvas.getContext("2d");
@@ -43,11 +40,7 @@ $(document).ready(function(){
 	ctx.filter = "saturate(" + saturate_val + "%) grayscale("+grayscale_val+"%) blur("+blur_val+"px) brightness("+brightness_val+"%) sepia("+sepia_val+"%) opacity("+opacity_val+"%)";
  });
 
- /*function edit(){
- 	blur()
- };*/
-
->>>>>>> development
+ 
 });
 
 
