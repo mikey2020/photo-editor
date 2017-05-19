@@ -215,7 +215,7 @@ function dropShadow(){
     var img = document.getElementById("image");
 	console.log(img);
 	ctx.drawImage(img,0,0,500,500);
-	ctx.filter = "drop-shadow(" + drop_val + "%) ";
+	ctx.filter = "drop-shadow(" + drop_val + "px) ";
 	console.log(img);
 }
 
