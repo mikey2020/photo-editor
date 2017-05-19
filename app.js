@@ -36,7 +36,7 @@ app.use(methodOverride());
 app.use(express.static('./public'));
     
 app.use(session({
-	secret: "WinterisComing",
+	secret: process.env.secret,
 
 	resave: false,
 

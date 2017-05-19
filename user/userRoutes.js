@@ -99,7 +99,7 @@ module.exports = (app) => {
 	app.get('/signin',(req,res) => {
 		if(!req.user){
 			res.render('signin',{
-				messages: req.flash('error') 
+				messages: req.flash('error') || req.flash('info')
 			});
 		}
 
