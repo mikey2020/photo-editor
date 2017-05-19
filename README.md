@@ -23,7 +23,7 @@ DB_URL='mongodb://john:doe@localhost:27017/databaseName'
 ### API Documentation
 Users can sign up and if they already have one they can sign in to their account
 
-You can use the application by going to https://dashboard.heroku.com/apps/bc-22-photo-editor
+You can use the application by going to https://bc-22-photo-editor.herokuapp.com/
 
 
 
