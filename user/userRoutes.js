@@ -57,6 +57,7 @@ module.exports = (app) => {
 		if(req.user){
 			res.render('edit',{
 				image: ""
+
 			});
 		}
 		else{

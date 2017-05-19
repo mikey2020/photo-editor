@@ -20,7 +20,8 @@ exports.render = (req,res) => {
 			    
 				res.render('index',{
 					name: req.user.fullname,
-					images: docs
+					images: docs,
+					messages: req.flash('error')
 				});
 			}
 		})
